@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnOn"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/btnDeviceUse"
+        android:layout_marginStart="60dp"
+        android:onClick="btnOnClickHandler"
+        android:text="On"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="60dp" />
+
+    <Button
+        android:id="@+id/btnVisible"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/btnOn"
+        android:layout_marginTop="163dp"
+        android:onClick="btnVisibleOnClickHandler"
+        android:text="Visible"
+        android:layout_alignLeft="@+id/btnOn" />
+
+    <Button
+        android:id="@+id/btnDeviceUse"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="61dp"
+        android:layout_marginTop="77dp"
+        android:onClick="btnDeviceUseOnClickHandler"
+        android:text="Device use"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="61dp" />
+
+    <Button
+        android:id="@+id/btnOff"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btnDeviceUse"
+        android:layout_alignTop="@+id/btnVisible"
+        android:onClick="btnOffOnClickHandler"
+        android:text="Off"
+        android:layout_alignRight="@+id/btnDeviceUse" />
+
+    <ListView
+        android:id="@+id/lvDevices"
+        android:layout_width="351dp"
+        android:layout_height="199dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="62dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="254dp" />
+
+</RelativeLayout>

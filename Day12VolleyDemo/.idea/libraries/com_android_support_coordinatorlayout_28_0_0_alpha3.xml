@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="com.android.support:coordinatorlayout-28.0.0-alpha3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0-alpha3.aar/bc2599b171c5854edc6ec96c614e7d2f/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0-alpha3.aar/bc2599b171c5854edc6ec96c614e7d2f/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

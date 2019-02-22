@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.w3epic.day8togglebutton.MainActivity"
+    android:padding="32dp">
+
+    <Button
+        android:id="@+id/btnToggle"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Toggle"
+        android:onClick="btnToggleOnClickHandler"/>
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="Button1"/>
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Button2"/>
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="100dp"
+        android:text="Button3"/>
+
+</RelativeLayout>
