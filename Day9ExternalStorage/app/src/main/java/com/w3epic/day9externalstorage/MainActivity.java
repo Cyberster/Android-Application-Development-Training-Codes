@@ -5,11 +5,14 @@ import android.os.Environment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -22,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         etFileContent = findViewById(R.id.etFileContent);
+
+        String content = getFIleContents("test_directory/File.txt");
+        Log.e("debug", content);
     }
 
     public void btnSaveOnClickHandler(View view) {
@@ -48,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 //File file = Environment.getExternalStorageDirectory();
                 String fileLocation = Environment.getExternalStorageDirectory().getAbsolutePath();
                 File dir = new File(fileLocation, "test_directory");
+                Log.e("debug", dir.getAbsolutePath());
 
                 if (!dir.exists()) {
                     dir.mkdir();
@@ -78,5 +85,26 @@ public class MainActivity extends AppCompatActivity {
         });
 
         builder.show();
+    }
+
+    String getFIleContents(String filename) {
+        String fileLocation = Environment.getExternalStorageDirectory().getAbsolutePath();
+        File file = new File(fileLocation, filename);
+        StringBuilder sb = new StringBuilder();
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                sb.append(line);
+                sb.append('\n');
+            }
+            br.close();
+        } catch (IOException e) {
+            //You'll need to add proper error handling here
+        }
+
+        return sb.toString();
     }
 }

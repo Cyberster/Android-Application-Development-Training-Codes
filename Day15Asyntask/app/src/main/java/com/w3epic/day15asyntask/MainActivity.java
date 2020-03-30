@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         String name = etName.getText().toString();
         String email = etEmail.getText().toString();
         //String uri = "http://w3epic.com/sandbox/process_get.php?name=" + name + "&email=" + email;
-        String uri = "http://w3epic.com/sandbox/process.php";
+        //String uri = "http://w3epic.com/sandbox/process.php";
+        String uri = "http:/192.168.0.16/android/post.php";
         new MultiTsak().execute(uri);
     }
 
@@ -57,14 +58,17 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... strings) {
             try {
-                // GET request *********************************************************************
-                /*URL url = new URL(strings[0]);
-                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                httpURLConnection.setRequestMethod("GET");
-                httpURLConnection.connect();*/
+                String urlParameters  = "name=Arpan&email=arp14@yahoo.com";
+
+//                // GET request *********************************************************************
+//                // For GET only - START
+//                URL url = new URL(strings[0] + '?' + urlParameters);
+//                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+//                httpURLConnection.setRequestMethod("GET");
+//                httpURLConnection.connect();
+//                // For GET only - END
 
                 // POST request ********************************************************************
-                String urlParameters  = "name=Arpan&email=arp14@yahoo.com";
                 byte[] postData       = urlParameters.getBytes( "UTF-8" );
                 String request        = strings[0];
                 URL    url            = new URL( request );
@@ -80,8 +84,12 @@ public class MainActivity extends AppCompatActivity {
 
                 // common for both GET and POST ****************************************************
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
-                Log.d("MainActivity", bufferedReader.readLine());
-                Log.d("MainActivity", bufferedReader.readLine());
+                StringBuilder sb = new StringBuilder();
+                String line = null;
+                while ((line = bufferedReader.readLine()) != null) {
+                    sb.append(line);
+                }
+                Log.d("MainActivity", sb.toString());
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
