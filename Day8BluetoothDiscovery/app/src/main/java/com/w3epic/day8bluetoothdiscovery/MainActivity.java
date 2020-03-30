@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         lvDevices = findViewById(R.id.lvDevices);
 
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (bluetoothAdapter == null) {
+            Log.d("debug", "Device doesn't support Bluetooth");
+        }
     }
 
     public void btnOnClickHandler(View view) {
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(intent, 0);
         } else {
+            Log.d("debug", "Already enabled");
             Toast.makeText(MainActivity.this, "Already enabled", Toast.LENGTH_SHORT).show();
         }
     }
@@ -43,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
     public void btnVisibleOnClickHandler(View view) {
         Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
         startActivityForResult(intent, 0);
-
     }
 
     public void btnDeviceUseOnClickHandler(View view) {
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         for (BluetoothDevice bt:bluetoothDevices) {
             arrayList.add(bt.getName());
         }
+        Log.d("debug", arrayList.toString());
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(
                 this,
@@ -65,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnOffOnClickHandler(View view) {
         if (!bluetoothAdapter.isEnabled()) {
+            Log.d("debug", "Already disabled");
             Toast.makeText(MainActivity.this, "Already disabled", Toast.LENGTH_SHORT).show();
         } else {
             bluetoothAdapter.disable();
